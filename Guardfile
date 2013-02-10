@@ -40,3 +40,9 @@ guard 'rspec', :cli => "--drb", :all_on_start => false, :all_after_pass => false
   # Factories
   watch(%r{^spec/factories/(.+)s\.rb$})               { |m| "spec/models/#{m[1]}_spec.rb" }
 end
+
+guard :jasmine do
+  watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
+  watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
+  watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
+end
