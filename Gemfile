@@ -51,6 +51,8 @@ group :development, :test do
   gem 'guard'
   # Guard Notifications
   gem 'terminal-notifier-guard'
+  # Jasmine
+  gem 'jasminerice'
 end
 
 group :test do
@@ -60,8 +62,9 @@ group :test do
   # Loads the Rails app and keeps it in memory
   gem "spork-rails"
   # Repeats tests on changes
-  gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
   # Factories
   gem 'factory_girl_rails'
   # Navegacion para los tests
