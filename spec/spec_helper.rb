@@ -5,6 +5,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
 
   require 'rspec/rails'
+  require 'remarkable_activerecord'
   require 'capybara/rails'
   require 'capybara/rspec'
 
