@@ -60,7 +60,7 @@ group :test do
   gem 'rspec-rails'
   gem 'rspec-instafail'
   # Rspec Matchers
-  gem 'remarkable_activerecord'
+  gem 'shoulda-matchers'
   # Loads the Rails app and keeps it in memory
   gem 'spork-rails'
   # Repeats tests on changes
