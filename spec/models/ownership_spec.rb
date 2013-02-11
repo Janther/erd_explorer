@@ -2,6 +2,6 @@
 require 'spec_helper'
 
 describe Ownership do
-  it { should belongs_to(:page) }
-  it { should belongs_to(:user) }
+  it { should belong_to(:page) }
+  it { should belong_to(:user) }
 end

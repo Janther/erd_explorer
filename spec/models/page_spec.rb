@@ -6,5 +6,5 @@ describe Page do
   it { should have_one(:slug) }
   it { should have_many(:page_parts) }
   it { should have_many(:ownerships) }
-  it { should have_many(:users, throug: :ownerships) }
+  it { should have_many(:users).through(:ownerships) }
 end
