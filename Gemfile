@@ -57,16 +57,16 @@ end
 
 group :test do
   # Rspec
-  gem 'rspec-rails', '~> 2.6'
+  gem 'rspec-rails'
   gem 'rspec-instafail'
+  # Rspec Matchers
+  gem 'remarkable_activerecord'
   # Loads the Rails app and keeps it in memory
-  gem "spork-rails"
+  gem 'spork-rails'
   # Repeats tests on changes
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-jasmine'
-  # Rspec Matchers
-  gem 'remarkable_rails'
   # Factories
   gem 'factory_girl_rails'
   # Navegacion para los tests
