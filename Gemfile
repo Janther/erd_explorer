@@ -65,6 +65,8 @@ group :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-jasmine'
+  # Rspec Matchers
+  gem 'remarkable_rails'
   # Factories
   gem 'factory_girl_rails'
   # Navegacion para los tests
