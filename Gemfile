@@ -31,6 +31,7 @@ group :assets do
   gem 'jquery-rails'
   # Backbone
   gem 'backbone-on-rails'
+  gem 'backbone-relational-rails'
   # Formularios
   gem 'uniformjs-rails'
   gem 'select2-rails'
