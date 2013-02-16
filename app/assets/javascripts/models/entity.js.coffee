@@ -1,3 +1,3 @@
-class ErdExplorer.Models.Entity extends Backbone.Model
+class ErdExplorer.Models.Entity extends Backbone.RelationalModel
   defaults:
     name: ''

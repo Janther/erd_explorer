@@ -1,4 +1,4 @@
-class ErdExplorer.Models.Attribute extends Backbone.Model
+class ErdExplorer.Models.Attribute extends Backbone.RelationalModel
   defaults:
     name: ''
     type: ''
