@@ -10,6 +10,9 @@ gem 'mysql2'
 # Compilador HAML
 gem 'haml-rails'
 
+# Entity Relational Diagram
+gem 'rails-erd'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
