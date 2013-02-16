@@ -14,6 +14,36 @@ describe 'Relationship', ->
     expect(rel.get 'mutual').toBe true
     expect(rel.get 'strength').toBe 1
 
+  it 'belongs to an domain', ->
+    dom = new ErdExplorer.Models.Domain
+      name: 'ErdExplorer'
+    rel = new ErdExplorer.Models.Relationship
+      domain: dom
+    expect(rel.get('domain').get 'name').toBe 'ErdExplorer'
+
+  it 'belongs to a source', ->
+    entity = new ErdExplorer.Models.Entity
+      name: 'User'
+    rel = new ErdExplorer.Models.Relationship
+      source: entity
+    expect(rel.get('source').get 'name').toBe 'User'
+
+  it 'belongs to a destination', ->
+    entity = new ErdExplorer.Models.Entity
+      name: 'User'
+    rel = new ErdExplorer.Models.Relationship
+      destination: entity
+    expect(rel.get('destination').get 'name').toBe 'User'
+
+  it 'source and a destination can be the same entity', ->
+    entity = new ErdExplorer.Models.Entity
+      name: 'User'
+    rel = new ErdExplorer.Models.Relationship
+      source: entity
+      destination: entity
+    expect(rel.get('source').get 'name').toBe 'User'
+    expect(rel.get('destination').get 'name').toBe 'User'
+
 describe 'Relationships', ->
   it 'Can add Model instances as objects and arrays.', ->
     rels = new ErdExplorer.Collections.Relationships()
@@ -22,13 +52,11 @@ describe 'Relationships', ->
       indirect: false
       mutual: true
       strength: 1
-    # how many relationships have been added so far?
     expect(rels.length).toBe 1
     rels.add [
       { indirect: false, mutual: true }
       { strength: 2}
     ]
-    # how many are there in total now?
     expect(rels.length).toBe 3
 
   it 'Can have a url property to define the basic url structure for all contained models.', ->

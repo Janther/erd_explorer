@@ -14,6 +14,13 @@ describe 'Attribute', ->
     expect(attr.get 'type').toBe 'string'
     expect(attr.get 'mandatory').toBe true
 
+  it 'belongs to an entity', ->
+    entity = new ErdExplorer.Models.Entity
+      name: 'User'
+    attr = new ErdExplorer.Models.Attribute
+      entity: entity
+    expect(attr.get('entity').get 'name').toBe 'User'
+
 describe 'Attributes', ->
   it 'Can add Model instances as objects and arrays.', ->
     attrs = new ErdExplorer.Collections.Attributes()
@@ -22,13 +29,11 @@ describe 'Attributes', ->
       name: 'id'
       type: 'string'
       mandatory: true
-    # how many attributes have been added so far?
     expect(attrs.length).toBe 1
     attrs.add [
       { name: 'name', type: 'string', mandatory: true }
       { name: 'value', type: 'integer' }
     ]
-    # how many are there in total now?
     expect(attrs.length).toBe 3
 
   it 'Can have a url property to define the basic url structure for all contained models.', ->
