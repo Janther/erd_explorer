@@ -1,0 +1,25 @@
+<script type="text/javascript">
+  ErdExplorer.domain = new ErdExplorer.Models.Domain({name: <%= raw @domain.name.to_json %>});
+  <% @entities.each do |entity| %>
+    new ErdExplorer.Models.Entity({
+      name: <%= raw entity.name.to_json %>,
+      domain: ErdExplorer.domain
+    });
+    <% entity.attributes.each do |attribute| %>
+      new ErdExplorer.Models.Attribute({
+        name: <%= raw attribute.name.to_json %>,
+        type: <%= raw attribute.type.to_json %>,
+        mandatory: <%= raw attribute.mandatory?.to_json %>,
+        entity: ErdExplorer.domain.get('entities').last()
+      });
+    <% end %>
+  <% end %>
+  <% @relationships.each do |relationship| %>
+    new ErdExplorer.Models.Relationship({
+      source: ErdExplorer.domain.get('entities').find(function(entity){return entity.get('name')==<%= raw relationship.source.name.to_json %>}),
+      destination: ErdExplorer.domain.get('entities').find(function(entity){return entity.get('name')==<%= raw relationship.destination.name.to_json %>}),
+      domain: ErdExplorer.domain
+    });
+  <% end %>
+</script>
+Loading...
