@@ -1,3 +1,3 @@
 ErdExplorer::Application.routes.draw do
-  root to: 'domains#index'
+  root to: 'main#index'
 end
