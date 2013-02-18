@@ -3,7 +3,12 @@ window.ErdExplorer =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: ->
+    new ErdExplorer.Routers.Domain()
+    # new ErdExplorer.Routers.Relationships()
+    # new ErdExplorer.Routers.Entities()
+    # new ErdExplorer.Routers.Attributes()
+    Backbone.history.start()
 
 $(document).ready ->
   ErdExplorer.initialize()
