@@ -9,7 +9,15 @@
       new ErdExplorer.Models.Attribute({
         name: <%= raw attribute.name.to_json %>,
         type: <%= raw attribute.type.to_json %>,
+        type_description: <%= raw attribute.type_description.to_json %>,
+        purpose: <%= raw purpose_for(attribute).to_json %>,
         mandatory: <%= raw attribute.mandatory?.to_json %>,
+        <% if attribute.type == "decimal" %>
+          scale: <%= raw attribute.scale.to_json %>
+        <% end %>
+        <% unless attribute.limit.nil? %>
+          limit: <%= raw attribute.limit.to_json %>,
+        <% end %>
         entity: ErdExplorer.domain.get('entities').last()
       });
     <% end %>
