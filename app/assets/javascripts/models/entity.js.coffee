@@ -1,4 +1,5 @@
 class ErdExplorer.Models.Entity extends Backbone.RelationalModel
+  idAttribute: 'name'
   defaults:
     name: ''
 
