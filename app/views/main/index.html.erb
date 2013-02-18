@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  console.time('Loading domain...');
   ErdExplorer.domain = new ErdExplorer.Models.Domain({name: <%= raw @domain.name.to_json %>});
   <% @entities.each do |entity| %>
     new ErdExplorer.Models.Entity({
@@ -29,5 +30,6 @@
       domain: ErdExplorer.domain
     });
   <% end %>
+  console.timeEnd('Loading domain...');
 </script>
 Loading...
